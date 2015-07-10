@@ -1,0 +1,42 @@
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddQuestionIdToAnswers (20150710095548)
+  [1m[35m (225.0ms)[0m  ALTER TABLE `answers` ADD `question_id` int(11)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150710095548')
+  [1m[36m (41.6ms)[0m  [1mCOMMIT[0m
+Migrating to AddInterviewerIdToAnswers (20150710095611)
+  [1m[35m (177.8ms)[0m  ALTER TABLE `answers` ADD `interviewer_id` int(11)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150710095611')
+  [1m[36m (32.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'qa_project'
+  AND fk.table_name = 'answers'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `answers`
+  [1m[36m (0.1ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'qa_project'
+  AND fk.table_name = 'interviewers'
+[0m
+  [1m[35m (0.0ms)[0m  SHOW CREATE TABLE `interviewers`
+  [1m[36m (0.1ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'qa_project'
+  AND fk.table_name = 'questions'
+[0m
+  [1m[35m (0.0ms)[0m  SHOW CREATE TABLE `questions`
