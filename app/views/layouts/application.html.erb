@@ -7,7 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div>
+	<ul class="nav nav-tabs">
+	  <li role="presentation" class="active"><%= link_to "Create a question", root_path %></li>
+	  <li role="presentation"><%= link_to "Answer", answers_new_path %></li>
+	</ul>
+</div>
 <%= yield %>
 
 </body>
